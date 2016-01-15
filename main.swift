@@ -55,12 +55,22 @@ func prodDictionary(str : String)-> (fileName:String,number:Int)
             outputStr.append(Array(str.characters)[i])
         }
     }
-    return (str,Int(outputStr)!)
+    
+    var num:Int = -1
+    
+    if let test = Int(outputStr){
+        num = Int(outputStr)!
+    }
+    else{
+        print("Convert Error,due to no number !")
+    }
+    
+    return (str,num)
 }
 
 
 func productSort(strArray:[String]) -> [String]{
-
+    
     var output:[String] = [String]()
     
     //整個Array進來
@@ -68,8 +78,8 @@ func productSort(strArray:[String]) -> [String]{
     //分割每個Array保留數字 並且 使用 List 去存
     
     for str in strArray{
-       let list  = prodDictionary(str)
-       arrList.append((name:list.fileName,number:list.number))
+        let list  = prodDictionary(str)
+        arrList.append((name:list.fileName,number:list.number))
     }
     //以List的數字排序 重建整個陣列
     
@@ -84,8 +94,8 @@ func productSort(strArray:[String]) -> [String]{
 
 var arrStr:[String] = ["圖8.png","圖10.png","圖2.png"]
 
-print(arrStr.sort())
-print(productSort(arrStr))
+print("NormalSort:", arrStr.sort())
+print("ObjectSort:", productSort(arrStr))
 
 
 
