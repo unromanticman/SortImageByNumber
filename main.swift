@@ -64,7 +64,6 @@ func prodDictionary(str : String)-> (fileName:String,number:Int)
     else{
         print("Convert Error,due to no number !")
     }
-    
     return (str,num)
 }
 
